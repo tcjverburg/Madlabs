@@ -7,6 +7,11 @@ import android.os.Bundle;
 /**
  * Created by Gebruiker on 14-9-2016.
  */
+//Import a string file
+    //count words to be filled in
+    //returns this info to user
+    //save words that were entered in array
+    //intent array to final page
 public class WordInput extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {

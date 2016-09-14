@@ -14,7 +14,9 @@ public class Story implements Serializable {
 
     {
         // instance initializer; runs before any constructor
-        text = "";
+        text = "I wannabe a <job> when I grow up.\n" +
+                "Just like my dad.\n" +
+                "Life is <adjective> like that!";
         placeholders = new ArrayList<String>();
         filledIn = 0;
         htmlMode = false;
