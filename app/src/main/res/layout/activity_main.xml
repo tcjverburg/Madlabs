@@ -22,10 +22,22 @@
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Welcome to Madlibs! In this application you
-     will be able to compile your own funny story by entering various words of your own! Entjoy."
+    android:text="Welcome to Madlibs! In this application you will be able to compile your own funny story by entering various words of your own! Entjoy."
+        android:textAlignment="gravity"
+        android:gravity="top|left"
+        android:id="@+id/textView"
         android:layout_below="@+id/main_pic"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:id="@+id/button"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp" />
+
 
 </RelativeLayout>
