@@ -22,7 +22,7 @@
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Welcome to Madlibs! In this application you will be able to compile your own funny story by entering various words of your own! Entjoy."
+    android:text="@string/Intro"
         android:textAlignment="gravity"
         android:gravity="top|left"
         android:id="@+id/textView"
@@ -37,7 +37,8 @@
         android:id="@+id/button"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp" />
+        android:layout_marginTop="38dp"
+        android:onClick="onWordInputClick"/>
 
 
 </RelativeLayout>

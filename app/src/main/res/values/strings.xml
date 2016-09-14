@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Madlabs</string>
+    <string name="fill_in_the_words_to_create_your_own_story">Fill in the words to create your own story:</string>
+    <string name="ok">OK</string>
+    <string name="Intro">Welcome to Madlibs! In this application you will be able to compile your own funny story by entering various words of your own! Entjoy.</string>
 </resources>
