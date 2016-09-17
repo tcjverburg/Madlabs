@@ -1,5 +1,6 @@
 package com.example.gebruiker.madlabs;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +13,8 @@ import android.os.Bundle;
     //returns this info to user
     //save words that were entered in array
     //intent array to final page
-public class WordInput extends Activity{
+
+public class WordInput extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,4 +22,9 @@ public class WordInput extends Activity{
         Intent activityThatCalled = getIntent();
         String previousActivity = (String) activityThatCalled.getExtras().get("callingActivity");
     }
+
+
 }
+
+
+
