@@ -50,8 +50,11 @@
             android:layout_height="wrap_content"
             android:text="Start"
             android:id="@+id/button"
-            android:onClick="onWordInputClick"
+            android:onClick="onClick"
             android:layout_below="@+id/textView"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
+
+
+
 </RelativeLayout>
