@@ -15,8 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View view) {
         Intent getNameScreen = new Intent(this, WordInput.class);
-        final int result=1;
         getNameScreen.putExtra("callingActivity", "MainActivity");
         startActivity(getNameScreen);
+
+
     }
 }

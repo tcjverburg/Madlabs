@@ -1,28 +1,7 @@
 package com.example.gebruiker.madlabs;
 
-/*
- * Story.java
- * Madlibs
- *
- * Created by Hella Haanstra on April 15, 2016
- *
- * Based on: CS 193A, Marty Stepp
- *
- * This class represents a Mad Libs story that comes from a text file.
- * You can construct it and pass an input stream or Scanner to read the story text.
- * After constructing it, you can ask it for each placeholder by calling
- *  getNextPlaceholder, then filling in that placeholder by calling fillInPlaceholder.
- * To see how many placeholders are left, use the methods
- *  getPlaceholderRemainingCount and isFilledIn.
- * You can get the story's text by calling its toString method.
- * A Story is Serializable, so it can be packed into an Intent as "extra" data.
- */
-
-// !YOU MAY WANT TO CHANGE THE PACKAGE BELOW SO THAT IT MATCHES YOUR PROJECT'S PACKAGE!
-
-
-        import java.io.*;
-        import java.util.*;
+import java.io.*;
+import java.util.*;
 
 public class Story implements Serializable {
     private String text;                 // text of the story
@@ -40,7 +19,9 @@ public class Story implements Serializable {
     }
 
     /** constructs a new Story reading its text from the given input stream */
-
+    public Story(InputStream stream) {
+        read(stream);
+    }
 
     /** resets the story back to an empty initial state */
     public void clear() {

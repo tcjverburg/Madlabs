@@ -20,7 +20,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".WordInput"
-            android:label="InputWords"
+        android:label="InputWords"
+        />
+        <activity android:name=".FinalStory"
+            android:label="Final story"
             />
     </application>
 
