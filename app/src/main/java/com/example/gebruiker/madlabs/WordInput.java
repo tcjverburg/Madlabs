@@ -50,8 +50,9 @@ public class WordInput extends Activity {
         TextView firsttextview = (TextView) findViewById(R.id.remaining_words);
         firsttextview.setText(tel + " words remaining");
         if (tel==0){
+            String story_end = story.toString();
             Intent getNameScreen = new Intent(this, FinalStory.class);
-            getNameScreen.putExtra("finalStory", story);
+            getNameScreen.putExtra("finalStory", story_end);
             startActivity(getNameScreen);
         }
 
