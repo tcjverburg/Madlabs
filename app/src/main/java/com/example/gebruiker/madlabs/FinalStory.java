@@ -11,9 +11,12 @@ import android.widget.TextView;
 public class FinalStory extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.final_story);
+
         Intent activityThatCalled = getIntent();
         String previousActivity = activityThatCalled.getExtras().getString("finalStory");
+
         TextView storyTextview = (TextView) findViewById(R.id.story_textview);
         storyTextview.setText(previousActivity);
 

@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fill_in_the_words_to_create_your_own_story"
-        />
+        android:textSize="20sp" />
 
 
 </LinearLayout>
@@ -25,6 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="left|center_horizontal"
         android:id="@+id/user_input"
+        android:hint=""
+
         />
 
     <Button
@@ -33,12 +35,15 @@
         android:layout_height="wrap_content"
         android:text="@string/ok"
         android:id="@+id/button2"
-        android:onClick="OnSendUserInput"/>
+        android:onClick="OnSendUserInput"
+
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/remaining_words"
-        android:text="Oud"
+        android:text=""
 
         />
 
