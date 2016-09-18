@@ -33,7 +33,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="86dp"
         android:layout_height="wrap_content"
-        android:text="@string/ok"
+        android:text="Enter"
         android:id="@+id/button2"
         android:onClick="OnSendUserInput"
 

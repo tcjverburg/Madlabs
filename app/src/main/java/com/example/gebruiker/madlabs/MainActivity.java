@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+//method for intent to new activity WordInput
     public void onClick(View view) {
         Intent getNameScreen = new Intent(this, WordInput.class);
         getNameScreen.putExtra("callingActivity", "MainActivity");
