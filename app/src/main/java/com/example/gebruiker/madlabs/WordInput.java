@@ -69,7 +69,6 @@ public class WordInput extends Activity {
     }
 
     public Story restoreStory(InputStream stream){
-
         return story = new Story(stream);
     }
 
@@ -79,6 +78,9 @@ public class WordInput extends Activity {
         String placeholder = story.getNextPlaceholder();
         EditText hint = (EditText)findViewById(R.id.user_input);
         hint.setHint( "<" + placeholder + ">");
+        int count = story.getPlaceholderRemainingCount();
+        TextView firsttextview = (TextView) findViewById(R.id.remaining_words);
+        firsttextview.setText(count + " word(s) remaining");
         return placeholder;
 
     }
