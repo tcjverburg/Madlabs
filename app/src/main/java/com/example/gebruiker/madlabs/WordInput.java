@@ -8,11 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
 
 /**
  * Created by Gebruiker on 14-9-2016.
@@ -32,14 +29,8 @@ public class WordInput extends Activity {
         Intent activityThatCalled = getIntent();
         setContentView(R.layout.activity_word_input);
         if (savedInstanceState != null){
-            String string_story = savedInstanceState.getString("story");
-            ArrayList<String> placeholders = savedInstanceState.getStringArrayList("story_placeholders");
-            Integer filled_in = savedInstanceState.getInt("story_filledIn");
-            TextView firsttextview = (TextView) findViewById(R.id.remaining_words);
-            InputStream stream = new ByteArrayInputStream(string_story.getBytes(Charset.defaultCharset()));
-            restoreStory(stream);
-            story.filledIn = filled_in;
-            story.placeholders = placeholders;
+            Story story_old = (Story)savedInstanceState.getSerializable("story");
+            story = story_old;
         }
         if(savedInstanceState == null){
         createStory();
@@ -49,10 +40,7 @@ public class WordInput extends Activity {
 
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("story", story.toString());
-        outState.putStringArrayList("story_placeholders", story.placeholders);
-        outState.putInt("story_filledIn", story.filledIn);
-
+        outState.putSerializable("story", story);
     }
 
 
@@ -65,10 +53,6 @@ public class WordInput extends Activity {
     //constructor for story class
     public Story createStory(){
         InputStream stream = input_stream();
-        return story = new Story(stream);
-    }
-
-    public Story restoreStory(InputStream stream){
         return story = new Story(stream);
     }
 

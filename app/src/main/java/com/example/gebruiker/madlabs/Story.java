@@ -5,8 +5,8 @@ import java.util.*;
 
 public class Story implements Serializable {
     private String text;                 // text of the story
-    public ArrayList<String> placeholders;   // list of placeholders to fill in
-    public int filledIn;                // number of placeholders that have been filled in
+    private ArrayList<String> placeholders;   // list of placeholders to fill in
+    private int filledIn;                // number of placeholders that have been filled in
     private boolean htmlMode;            // set to true to surround placeholders with <b></b> tags
 
     {
