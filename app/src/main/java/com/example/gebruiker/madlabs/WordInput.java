@@ -12,6 +12,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 
 /**
  * Created by Gebruiker on 14-9-2016.
@@ -20,6 +21,7 @@ import java.nio.charset.Charset;
 
 public class WordInput extends Activity {
     private Story story;
+    public int story_filledIn;
 
 
 
@@ -31,9 +33,13 @@ public class WordInput extends Activity {
         setContentView(R.layout.activity_word_input);
         if (savedInstanceState != null){
             String string_story = savedInstanceState.getString("story");
+            ArrayList<String> placeholders = savedInstanceState.getStringArrayList("story_placeholders");
+            Integer filled_in = savedInstanceState.getInt("story_filledIn");
+            TextView firsttextview = (TextView) findViewById(R.id.remaining_words);
             InputStream stream = new ByteArrayInputStream(string_story.getBytes(Charset.defaultCharset()));
             restoreStory(stream);
-
+            story.filledIn = filled_in;
+            story.placeholders = placeholders;
         }
         if(savedInstanceState == null){
         createStory();
@@ -44,6 +50,9 @@ public class WordInput extends Activity {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("story", story.toString());
+        outState.putStringArrayList("story_placeholders", story.placeholders);
+        outState.putInt("story_filledIn", story.filledIn);
+
     }
 
 
@@ -60,6 +69,7 @@ public class WordInput extends Activity {
     }
 
     public Story restoreStory(InputStream stream){
+
         return story = new Story(stream);
     }
 

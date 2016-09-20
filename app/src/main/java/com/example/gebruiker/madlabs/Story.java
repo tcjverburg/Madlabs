@@ -5,8 +5,8 @@ import java.util.*;
 
 public class Story implements Serializable {
     private String text;                 // text of the story
-    private List<String> placeholders;   // list of placeholders to fill in
-    private int filledIn;                // number of placeholders that have been filled in
+    public ArrayList<String> placeholders;   // list of placeholders to fill in
+    public int filledIn;                // number of placeholders that have been filled in
     private boolean htmlMode;            // set to true to surround placeholders with <b></b> tags
 
     {
@@ -76,7 +76,7 @@ public class Story implements Serializable {
                 // a placeholder; replace with e.g. "<0>" so I can find/replace it easily later
                 // (make them bold so that they stand out!)
                 if (htmlMode) {
-                    text += " <b><" + placeholders.size() + "></b>";
+                    text += " <b><" + placeholders.size()  +"></b>";
                 } else {
                     text += " <" + placeholders.size() + ">";
                 }
