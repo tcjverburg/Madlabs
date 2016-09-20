@@ -18,7 +18,5 @@ public class MainActivity extends AppCompatActivity {
         Intent getNameScreen = new Intent(this, WordInput.class);
         getNameScreen.putExtra("callingActivity", "MainActivity");
         startActivity(getNameScreen);
-
-
     }
 }

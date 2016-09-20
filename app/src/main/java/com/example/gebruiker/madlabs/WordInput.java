@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 
 /**
  * Created by Gebruiker on 14-9-2016.
@@ -16,22 +19,34 @@ import java.io.InputStream;
 
 
 public class WordInput extends Activity {
-    public Story story;
+    private Story story;
+
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         //Get Intent from Main Activity
         Intent activityThatCalled = getIntent();
-
         setContentView(R.layout.activity_word_input);
+        if (savedInstanceState != null){
+            String string_story = savedInstanceState.getString("story");
+            InputStream stream = new ByteArrayInputStream(string_story.getBytes(Charset.defaultCharset()));
+            restoreStory(stream);
 
-        //calls createStream and  editText methods
+        }
+        if(savedInstanceState == null){
         createStory();
+        }
         editText();
     }
+
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("story", story.toString());
+    }
+
+
     //creates stream for parameter Story class from text file
     public InputStream input_stream()
     {
@@ -44,11 +59,17 @@ public class WordInput extends Activity {
         return story = new Story(stream);
     }
 
+    public Story restoreStory(InputStream stream){
+        return story = new Story(stream);
+    }
+
+
     //Edits the editText of activity_word_input.xml and sets the hint with what kind of word should be entered
-    public void editText(){
+    public String editText(){
         String placeholder = story.getNextPlaceholder();
         EditText hint = (EditText)findViewById(R.id.user_input);
         hint.setHint( "<" + placeholder + ">");
+        return placeholder;
 
     }
 
