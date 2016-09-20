@@ -57,6 +57,8 @@ public class WordInput extends Activity {
     }
 
 
+
+
     //Edits the editText of activity_word_input.xml and sets the hint with what kind of word should be entered
     public String editText(){
         String placeholder = story.getNextPlaceholder();
@@ -78,45 +80,43 @@ public class WordInput extends Activity {
 
     //method for what happens when button is clicked
     public void OnSendUserInput(View view) throws IOException {
+        //shows the amount of words left to be entered
+        int count = story.getPlaceholderRemainingCount();
+        //if there are no more words to be entered, new intent for final story is executed
         //sets placeholder, hints on ever new click and receives input from user of which word has been entered
         String placeholder = story.getNextPlaceholder();
-        EditText hint = (EditText)findViewById(R.id.user_input);
-        hint.setHint("<" + placeholder + ">");
+        EditText hint = (EditText) findViewById(R.id.user_input);
+
         //gets new word from method getUserInput
         String newWord = getUserInput();
-
         //makes sure empty strings are not attached and gives feedback to user
-        if("".equals(newWord))
-        {
+        if ("".equals(newWord)) {
             hint.setHint("enter a <" + placeholder + ">");
-            }
+        }
         //adds new word to story instance and changes the placeholder
-        else{
+        else {
             story.fillInPlaceholder(newWord);
+            if (count!=1){
             hint.setText("");
             String placeholderContinued = story.getNextPlaceholder();
             hint.setHint("<" + placeholderContinued + ">");
+            int second_count = story.getPlaceholderRemainingCount();
+            TextView firsttextview = (TextView) findViewById(R.id.remaining_words);
+            firsttextview.setText(second_count + " word(s) remaining");}
+
+            else {
+                //finishes story
+                String story_end = story.toString();
+                //intent to start new activity FinalStory
+                Intent getNameScreen = new Intent(this, FinalStory.class);
+                //passes extra data story_end
+                getNameScreen.putExtra("finalStory", story_end);
+                startActivity(getNameScreen);
+                //finishes current activity
+                finish();
+            }
         }
-        //shows the amount of words left to be entered
-        int count = story.getPlaceholderRemainingCount();
-        TextView firsttextview = (TextView) findViewById(R.id.remaining_words);
-        firsttextview.setText(count + " word(s) remaining");
-        //if there are no more words to be entered, new intent for final story is executed
-        if (count==0){
-            //finishes story
-            String story_end = story.toString();
-            //intent to start new activity FinalStory
-            Intent getNameScreen = new Intent(this, FinalStory.class);
-            //passes extra data story_end
-            getNameScreen.putExtra("finalStory", story_end);
-            startActivity(getNameScreen);
-            //finishes current activity
-            finish();
-        }
+
 
     }
-
-
-
-
-}
+            }
